@@ -1,0 +1,19 @@
+func main() {
+    i := 0
+    j := 0
+    printn("print test")
+    while i < 5 {
+        j = 0
+        while j < 5 - i {
+            print(" ")
+            j = j + 1
+        }
+        j = 0
+        while j < 2*i+1 {
+            print("*")
+            j = j + 1
+        }
+        printn("")
+        i = i + 1
+    }
+}
