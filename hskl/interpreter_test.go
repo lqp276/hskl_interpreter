@@ -7,7 +7,7 @@ import (
 )
 
 func TestInterp(t *testing.T) {
-	body, _ := ioutil.ReadFile("../data/hskl/test.hskl")
+	body, _ := ioutil.ReadFile("../data/test.hskl")
 	program := string(body)
 
 	fmt.Printf("%s", program)

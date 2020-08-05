@@ -7,7 +7,7 @@ import (
 )
 
 func TestSemantic(t *testing.T) {
-	body, _ := ioutil.ReadFile("../data/hskl/test.hskl")
+	body, _ := ioutil.ReadFile("../data/test.hskl")
 	program := string(body)
 
 	p := NewParser(program)

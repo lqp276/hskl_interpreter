@@ -310,8 +310,8 @@ func (se *semanticAnalyzer) visitConditionBlock(node *AstConditionBlock) interfa
 	se.popSymbolTable()
 
 	if node.altCondBlock != nil {
-		ret := se.visitConditionBlock(node.altCondBlock)
-		if ret != symTypeVoid && ret != realRet {
+		ret := se.visitConditionBlock(node.altCondBlock).(AstType)
+		if ret.signature() != "V" && ret.signature() != realRet.signature() {
 			doPanic("return diffrent type, ret1: %v, ret2: %v", realRet, ret)
 			return nil
 		}
@@ -319,10 +319,10 @@ func (se *semanticAnalyzer) visitConditionBlock(node *AstConditionBlock) interfa
 
 	if node.altBlock != nil {
 		se.pushSymbolTable()
-		ret := se.visitCodeBlock(node.altBlock)
+		ret := se.visitCodeBlock(node.altBlock).(AstType)
 		se.popSymbolTable()
 
-		if ret != symTypeVoid && ret != realRet {
+		if ret.signature() != "V" && ret.signature() != realRet.signature() {
 			doPanic("return diffrent type, ret1: %v, ret2: %v", realRet, ret)
 			return nil
 		}
