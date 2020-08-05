@@ -1,0 +1,38 @@
+func fibonacci(num:int) int {
+    if num < 0 {
+        return 0
+    }
+
+    if num == 0 {
+        return 0
+    }
+
+    if num == 1 {
+        return 1
+    }
+
+    return fibonacci(num - 1) + fibonacci(num - 2)
+}
+
+runCount := 20
+
+func main() {
+    var result :[]int
+    a := 0
+    while a < runCount {
+        if a > 8 {
+            break
+        }
+
+        result = append(result, fibonacci(a))
+        //printn(str(fibonacci(a))) 
+        a = a + 1
+    }
+
+    a = 0
+    printn("result len: " + len(result))
+    while a < len(result) {
+        printn("fib seq: " + a + " -> " + result[a])
+        a = 1 + a
+    }
+}
