@@ -1,20 +1,136 @@
+func fibonacci(num:int) int {
+    if num < 0 {
+        return 0
+    }
+
+    if num == 0 {
+        return 0
+    }
+
+    if num == 1 {
+        return 1
+    }
+
+    return fibonacci(num - 1) + fibonacci(num - 2)
+}
+
+runCount := 20
+
+func testVar() {
+    //runCount := 3
+    iv := "3"
+    var intVal : int
+
+    iv = iv + "4"
+    intVal = int(iv) + 10 + int(3)
+    printn("iv:" + str(iv) + ", test string concatenate")
+    printn("intVal:" + str(intVal))
+}
+
+func test_2d_array(arr : [][]int) [][]int {
+    intArr1 := []int{3, 4}
+    intArr2 := []int{5, 6}
+
+    arr = append(arr, intArr1)
+    arr = append(arr, intArr2)
+    return arr
+}
+
+func print_2d_arr(arr:[][]int) {
+    var l1: int
+
+    arr[2] = append(arr[2], 7)
+
+    printn("arr total len: " + str(len(arr)))
+    while l1 < len(arr) {
+        var l2 : int
+
+        printn("sub arr len: " + len(arr[l1]) + ", l2: " + l2)
+        while l2 < len(arr[l1]) {
+            printn("[" + l1 + "]" + "[" + l2 + "]: " + arr[l1][l2])
+
+            l2 = arr[l1][l2]
+            l2 = l2 + 1
+        }
+
+        l1 = l1 + 1
+    }
+}
+
+type sint int1
+type int1 int2
+type int2 int3
+type int3 int
+type student struct {
+    wife : student
+    name : string
+    age : sint
+    height: int
+
+    hands:[]string
+}
+
+func testTypeDef() {
+    var me :student
+    var she :student
+
+    me.name = "lqp"
+    me.age = 18
+    
+    me.hands = new([]string)
+    me.hands = append(me.hands, "left")
+    me.hands = append(me.hands, "right")
+
+    she.height = me.height
+    she.name = "cpp"
+
+    me.wife = she
+    me.wife.age = 100
+    printn("she is: " + me)
+}
 
 func main() {
-    i := 0
-    j := 0
-    printn("print test")
-    while i < 5 {
-        j = 0
-        while j < 2*i+1 {
-            if j == i {
-                print("*")
-            }else{
-                print("sdfdsf")
-            }
-            
-            j = j + 1
+    a := 0
+
+    var d2Arr :[][]int
+    var result :[]int
+    intArr1 := []int{1, 2}
+    tokens := []string {"this", "is", "array" , "token"}
+
+
+    testTypeDef()
+    tokens = append(tokens, "end!!!")
+
+    d2Arr = append(d2Arr, intArr1)
+    d2Arr = test_2d_array(d2Arr)
+    print_2d_arr(d2Arr)
+
+    print("hello world!!" + " lqp\n")
+    while a < runCount {
+        if a > 8 {
+            break
         }
-        printn("")
-        i = i + 1
+
+        result = append(result, fibonacci(a))
+        //printn(str(fibonacci(a))) 
+        a = a + 1
     }
+
+    a = 0
+    printn("result len: " + len(result))
+    while a < len(result) {
+        printn("fib seq: " + a + " -> " + result[a])
+        a = 1 + a
+    }
+
+    a = 0
+    printn("tokens len: " + len(tokens))
+    while a < len(tokens) {
+        print(tokens[a])
+        print(" ")
+        a = 1 + a
+    }
+
+    printn("")
+    testVar()
 }
