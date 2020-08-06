@@ -25,7 +25,7 @@ func main() {
 	pro := p.Program()
 	err := analyzer.DoAnalyze(pro)
 	if err != nil {
-		fmt.Errorf("analyze error: %v\n", err)
+		fmt.Printf("analyze error: %v\n", err)
 		return
 	}
 
@@ -33,6 +33,6 @@ func main() {
 	err = interp.DoInterpret(pro)
 
 	if err != nil {
-		fmt.Errorf("interpret error: %v\n", err)
+		fmt.Printf("interpret error: %v\n", err)
 	}
 }
